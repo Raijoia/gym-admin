@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class tipo extends Model {
+  class Tipo extends Model {
     static associate(models) {
       Tipo.hasMany(models.Personal, {
         foreignKey: 'tipo_id'
@@ -13,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
-  tipo.init({
+  Tipo.init({
     tipo_usuario: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Tipo',
     tableName: 'tipos',
   });
-  return tipo;
+  return Tipo;
 };

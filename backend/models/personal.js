@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class personal extends Model {
+  class Personal extends Model {
     static associate(models) {
       Personal.belongsTo(models.Tipo, {
         foreignKey: 'tipo_id'
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       })
     }
   }
-  personal.init({
+  Personal.init({
     nome: DataTypes.STRING,
     cpf: DataTypes.STRING,
     crm: DataTypes.STRING,
@@ -28,5 +28,5 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Personal',
     tableName: 'personais',
   });
-  return personal;
+  return Personal;
 };
