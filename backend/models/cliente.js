@@ -4,13 +4,16 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class cliente extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      Cliente.belongsTo(models.Tipo, {
+        foreignKey: 'tipo_id'
+      })
+      Cliente.belongsTo(models.Personal, {
+        foreignKey: 'personal_id'
+      })
+      Cliente.hasOne(models.Treino, {
+        foreignKey: 'cliente_id'
+      })
     }
   }
   cliente.init({
@@ -21,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     data_nasc: DataTypes.DATEONLY
   }, {
     sequelize,
-    modelName: 'cliente',
+    modelName: 'Cliente',
     tableName: 'clientes',
   });
   return cliente;
