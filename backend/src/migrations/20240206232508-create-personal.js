@@ -27,6 +27,14 @@ module.exports = {
       data_nasc: {
         type: Sequelize.DATEONLY
       },
+      tipo_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'tipos',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
