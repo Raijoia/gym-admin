@@ -1,11 +1,13 @@
 <section>
-  <form>
+  <form [formGroup]="formulario" (submit)
+  ="login()">
     <div>
       <label for="email">E-mail</label>
       <input
         type="email"
         id="email"
         placeholder="Digite seu email"
+        formControlName="email"
       >
     </div>
     <div>
@@ -14,6 +16,7 @@
         type="text"
         id="crm"
         placeholder="Digite seu crm"
+        formControlName="crm"
       >
     </div>
     <div>
@@ -22,6 +25,7 @@
         type="text"
         id="cpf"
         placeholder="Digite seu cpf"
+        formControlName="cpf"
       >
     </div>
     <button>Login</button>
