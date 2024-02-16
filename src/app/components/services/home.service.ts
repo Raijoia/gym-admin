@@ -8,7 +8,7 @@ import { IPersonal } from '../interfaces/personal';
   providedIn: 'root',
 })
 export class HomeService {
-  private readonly API = 'http://localhost:3002/personais';
+  private readonly API = 'http://localhost:3000/personais';
 
   constructor(private http: HttpClient) {}
 
@@ -22,5 +22,9 @@ export class HomeService {
       cpf: personal.cpf,
       tipo_id: 1,
     });
+  }
+
+  listar(): Observable<IPersonal[]> {
+    return this.http.get<IPersonal[]>(this.API);
   }
 }
