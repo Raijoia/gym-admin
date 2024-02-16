@@ -1,11 +1,13 @@
 <section>
-  <form>
+  <form [formGroup]="formulario" (submit)="
+  cadastrar()">
     <div>
       <label for="nome">Nome Completo</label>
       <input
         type="text"
         id="nome"
         placeholder="Digite seu nome completo"
+        formControlName="nome"
       >
     </div>
     <div>
@@ -14,6 +16,7 @@
         type="email"
         id="email"
         placeholder="Digite seu email"
+        formControlName="email"
       >
     </div>
     <div>
@@ -22,6 +25,7 @@
         type="text"
         id="telefone"
         placeholder="Digite seu telefone"
+        formControlName="telefone"
       >
     </div>
     <div>
@@ -29,6 +33,7 @@
       <input
         type="date"
         id="date"
+        formControlName="date"
       >
     </div>
     <div>
@@ -37,6 +42,7 @@
         type="text"
         id="crm"
         placeholder="Digite seu crm"
+        formControlName="crm"
       >
     </div>
     <div>
@@ -45,6 +51,7 @@
         type="text"
         id="cpf"
         placeholder="Digite seu cpf"
+        formControlName="cpf"
       >
     </div>
     <button>Cadastrar</button>
